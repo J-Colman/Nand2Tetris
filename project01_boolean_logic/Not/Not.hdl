@@ -1,0 +1,8 @@
+/*	Not gate:
+	If in=1 then out=0, if in=0 then out=1  */
+CHIP Not {
+	IN in;
+	OUT out;
+	PARTS:
+    Nand(a=in, b=in, out=out);
+}
