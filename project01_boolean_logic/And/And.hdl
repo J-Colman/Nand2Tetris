@@ -1,5 +1,5 @@
 /*	And gate:
-	out=1 only when both a=1 AND b=1 */
+	out=1 only when both a=1 AND b=1, else out=0. */
 CHIP And {
 	IN a, b;
 	OUT out;
