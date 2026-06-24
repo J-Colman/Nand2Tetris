@@ -22,6 +22,7 @@ jobs:
         run: |
           wget -q "https://drive.google.com/uc?export=download&id=1xZzcMIUETv3u3sdpM_oTJSTetpVee3KZ" -O nand2tetris.zip
           unzip -q nand2tetris.zip
+          find . -name "HardwareSimulator.sh" 
           chmod -x nand2tetris/tools/*.sh
 
       - name: Test Not
