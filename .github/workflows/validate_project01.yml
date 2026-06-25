@@ -96,6 +96,6 @@ jobs:
 
       - name: Test DMux8Way
         run: |
-          cp project01_boolean_logic/DMux8Way/DMux8Way.hdl nand2tetris/projects/1/
+          cp project01_boolean_logic/DMux8Way.hdl nand2tetris/projects/1/
           bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/DMux8Way.tst
       
