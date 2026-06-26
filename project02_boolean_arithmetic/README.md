@@ -13,6 +13,6 @@ The ALU took a little while to decipher. Originally I built it by simplifying th
 
 In a note at the end of the chapter, the authors highlighted the inefficient implementation of the current 16-bit adder and suggested an improved version: the carry look-ahead adder. This got me interested in what other variations of the adder were out there, so I did a small amount of research and came across this article comparing the performance of multiple adder variants using various metrics:
 
-[https://www.irjet.net/archives/V9/i10/IRJET-V9I10133.pdf]
+https://www.irjet.net/archives/V9/i10/IRJET-V9I10133.pdf
 
 Two variants in particular caught my attention: the carry look-ahead adder mentioned by this project's authors and the carry select adder, an adder with notable latency benefits. I decided to extend the project and implement both of these chips, settling on using the carry select adder in my ALU chip.
