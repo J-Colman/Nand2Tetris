@@ -16,3 +16,5 @@ In a note at the end of the chapter, the authors highlighted the inefficient imp
 https://www.irjet.net/archives/V9/i10/IRJET-V9I10133.pdf
 
 Two variants in particular caught my attention: the carry look-ahead adder mentioned by this project's authors and the carry select adder, an adder with notable latency benefits. I decided to extend the project and implement both of these chips, settling on using the carry select adder in my ALU chip.
+
+As before, I also set up a dedicated project Github workflow to test all the chips implemented.
