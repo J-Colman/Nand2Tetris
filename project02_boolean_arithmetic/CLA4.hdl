@@ -1,0 +1,74 @@
+/*	4-Bit Carry Look-ahead Adder:
+    Adds two 4-bit numbers using carry look-ahead logic.
+    All carries computed in parallel rather than rippling.  */
+CHIP CLA4 {
+	IN a[4], b[4], cin;
+	OUT out[4], cout;
+	PARTS:
+    // Propogate and Generate signals for each carry bit:
+    // Pi = Ai ^ Bi
+    Xor(a=a[0], b=b[0], out=p0);
+    Xor(a=a[1], b=b[1], out=p1);
+    Xor(a=a[2], b=b[2], out=p2);
+    Xor(a=a[3], b=b[3], out=p3);
+    // Gi = Ai & Bi
+    And(a=a[0], b=b[0], out=g0);
+    And(a=a[1], b=b[1], out=g1);
+    And(a=a[2], b=b[2], out=g2);
+    And(a=a[3], b=b[3], out=g3);
+
+    // Carry Look-ahead logic:
+    // C(i+1) = Gi + (Pi & Ci)
+    // C1 = G0 | (P0 & Cin):
+    And(a=p0, b=cin, out=w1);
+    Or(a=g0, b=w1, out=c1);
+
+    // C2 = G1 | (P1 & C1)
+    // C2 = G1 | (P1 & G0) | (P1 & P0 & Cin)
+    And(a=p1, b=g0, out=w2);
+
+    And(a=p1, b=p0, out=w3);
+    And(a=w3, b=cin, out=w4);
+
+    Or(a=g1, b=w2, out=w5);
+    Or(a=w5, b=w4, out=c2);
+
+    // C3 = G2 | (P2 & C2)
+    // C3 = G2 | (P2 & G1) | (P2 & P1 & G0) | (P2 & P1 & P0 & Cin)
+    And(a=p2, b=g1, out=w6);
+
+    And(a=p2, b=p1, out=w7);
+    And(a=w7, b=g0, out=w8);
+
+    And(a=w7, b=p0, out=w10);
+    And(a=w10, b=cin, out=w11);
+
+    Or(a=g2, b=w6, out=w12);
+    Or(a=w12, b=w8, out=w13);
+    Or(a=w13, b=w11, out=c3);
+
+    // C4 = G3 | (P3 & C3)
+    // C4 = G3 | (P3 & G2) | (P3 & P2 & G1) | (P3 & P2 & P1 & G0) | (P3 & P2 & P1 & P0 & Cin)
+    And(a=p3, b=g2, out=w14);
+    
+    And(a=p3, b=p2, out=w15);
+    And(a=w15, b=g1, out=w16);
+
+    And(a=w15, b=p1, out=w18);
+    And(a=w18, b=g0, out=w19);
+
+    And(a=w18, b=p0, out=w22);
+    And(a=w22, b=cin, out=w23);
+
+    Or(a=g3, b=w14, out=w24);
+    Or(a=w24, b=w16, out=w25);
+    Or(a=w25, b=w19, out=w26);
+    Or(a=w26, b=w23, out=cout);
+
+    // Sum bits:
+    // Si = Pi ^ Ci
+    Xor(a=p0, b=cin, out=out[0]);
+    Xor(a=p1, b=c1, out=out[1]);
+    Xor(a=p2, b=c2, out=out[2]);
+    Xor(a=p3, b=c3, out=out[3]);
+}
