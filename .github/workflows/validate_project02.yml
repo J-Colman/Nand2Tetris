@@ -1,0 +1,43 @@
+name: Validate project02_boolean_arithmetic
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Download nand2tetris tools
+        run: |
+          wget -q "https://drive.google.com/uc?export=download&id=1xZzcMIUETv3u3sdpM_oTJSTetpVee3KZ" -O nand2tetris.zip
+          unzip -q nand2tetris.zip
+          chmod +x nand2tetris/tools/*.sh
+
+      - name: Copy project02 chips
+        run: cp project02_boolean_arithmetic/*.hdl nand2tetris/projects/2/
+
+      - name: Test HalfAdder
+        run: bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/2/HalfAdder.tst
+
+      - name: Test FullAdder
+        run: bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/2/FullAdder.tst
+
+      - name: Test Add16
+        run: bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/2/Add16.tst
+
+      - name: Test Inc16
+        run: bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/2/Inc16.tst
+
+      - name: Test ALU
+        run: bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/2/ALU.tst
