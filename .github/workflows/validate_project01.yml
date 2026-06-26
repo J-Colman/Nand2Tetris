@@ -24,78 +24,51 @@ jobs:
           unzip -q nand2tetris.zip
           chmod +x nand2tetris/tools/*.sh
 
+      - name: Copy project01 chips
+        run: cp project01_boolean_logic/*.hdl nand2tetris/projects/1/
+
       - name: Test Not
-        run: |
-          cp project01_boolean_logic/Not.hdl nand2tetris/projects/1/
-          bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/Not.tst
+        run: bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/Not.tst
 
       - name: Test And
-        run: |
-          cp project01_boolean_logic/And.hdl nand2tetris/projects/1/
-          bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/And.tst
+        run: bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/And.tst
 
       - name: Test Or
-        run: |
-          cp project01_boolean_logic/Or.hdl nand2tetris/projects/1/
-          bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/Or.tst
+        run: bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/Or.tst
 
       - name: Test Xor
-        run: |
-          cp project01_boolean_logic/Xor.hdl nand2tetris/projects/1/
-          bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/Xor.tst
+        run: bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/Xor.tst
 
       - name: Test Mux
-        run: |
-          cp project01_boolean_logic/Mux.hdl nand2tetris/projects/1/
-          bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/Mux.tst
+        run: bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/Mux.tst
 
       - name: Test DMux
-        run: |
-          cp project01_boolean_logic/DMux.hdl nand2tetris/projects/1/
-          bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/DMux.tst
+        run: bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/DMux.tst
 
       - name: Test Not16
-        run: |
-          cp project01_boolean_logic/Not16.hdl nand2tetris/projects/1/
-          bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/Not16.tst
+        run: bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/Not16.tst
 
       - name: Test And16
-        run: |
-          cp project01_boolean_logic/And16.hdl nand2tetris/projects/1/
-          bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/And16.tst
+        run: bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/And16.tst
 
       - name: Test Or16
-        run: |
-          cp project01_boolean_logic/Or16.hdl nand2tetris/projects/1/
-          bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/Or16.tst
+        run: bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/Or16.tst
 
       - name: Test Mux16
-        run: |
-          cp project01_boolean_logic/Mux16.hdl nand2tetris/projects/1/
-          bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/Mux16.tst
+        run: bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/Mux16.tst
 
       - name: Test Or8Way
-        run: |
-          cp project01_boolean_logic/Or8Way.hdl nand2tetris/projects/1/
-          bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/Or8Way.tst
+        run: bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/Or8Way.tst
 
       - name: Test Mux4Way16
-        run: |
-          cp project01_boolean_logic/Mux4Way16.hdl nand2tetris/projects/1/
-          bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/Mux4Way16.tst
+        run: bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/Mux4Way16.tst
 
       - name: Test Mux8Way16
-        run: |
-          cp project01_boolean_logic/Mux8Way16.hdl nand2tetris/projects/1/
-          bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/Mux8Way16.tst
+        run: bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/Mux8Way16.tst
 
       - name: Test DMux4Way
-        run: |
-          cp project01_boolean_logic/DMux4Way.hdl nand2tetris/projects/1/
-          bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/DMux4Way.tst
+        run: bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/DMux4Way.tst
 
       - name: Test DMux8Way
-        run: |
-          cp project01_boolean_logic/DMux8Way.hdl nand2tetris/projects/1/
-          bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/DMux8Way.tst
+        run: bash nand2tetris/tools/HardwareSimulator.sh nand2tetris/projects/1/DMux8Way.tst
       
