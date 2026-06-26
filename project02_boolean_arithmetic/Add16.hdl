@@ -1,6 +1,6 @@
 /*	16-bit Adder (depreciated):
     Adds two 16-bit numbers.  */
-CHIP RCA4 {
+CHIP Add16 {
 	IN a[4], b[4], cin;
 	OUT out[4], cout;
 	PARTS:
