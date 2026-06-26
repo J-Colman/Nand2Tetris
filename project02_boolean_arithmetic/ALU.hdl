@@ -23,7 +23,7 @@ CHIP ALU {
 
     // Handle f:
     And16(a=x2, b=y2, out=andout);
-    Add16(a=x2, b=y2, out=addout);
+    CLA16(a=x2, b=y2, out=addout);
     Mux16(a=andout, b=addout, sel=f, out=fout);
 
     // Handle no and set ng:
