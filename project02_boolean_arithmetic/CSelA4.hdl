@@ -7,8 +7,8 @@ CHIP CSelA4 {
     OUT out[4], cout;
     PARTS:
     // Compute both cin possibilities in parallel:
-    CLA4(a=a, b=b, cin=false, out=out0, cout=cout0);
-    CLA4(a=a, b=b, cin=true, out=out1, cout=cout1);
+    RCA(a=a, b=b, cin=false, out=out0, cout=cout0);
+    RCA(a=a, b=b, cin=true, out=out1, cout=cout1);
 
     // Select based on actual cin:
     Mux4(a=out0, b=out1, sel=cin, out=out);
