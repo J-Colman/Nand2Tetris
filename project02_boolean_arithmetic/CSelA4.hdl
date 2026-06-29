@@ -1,14 +1,13 @@
 /*  4-bit Carry Select Adder
     Computes result for both in=0 and cin=1 in parallel,
-    selects correct result when actual cin arrives.
-    Optimised for latency.  */
+    selects correct result when actual cin arrives. */
 CHIP CSelA4 {
     IN a[4], b[4], cin;
     OUT out[4], cout;
     PARTS:
     // Compute both cin possibilities in parallel:
-    RCA(a=a, b=b, cin=false, out=out0, cout=cout0);
-    RCA(a=a, b=b, cin=true, out=out1, cout=cout1);
+    RCA4(a=a, b=b, cin=false, out=out0, cout=cout0);
+    RCA4(a=a, b=b, cin=true, out=out1, cout=cout1);
 
     // Select based on actual cin:
     Mux4(a=out0, b=out1, sel=cin, out=out);
