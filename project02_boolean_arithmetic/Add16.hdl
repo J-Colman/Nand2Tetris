@@ -1,4 +1,4 @@
-/*	16-bit Adder (depreciated):
+/*	16-bit Adder:
     Adds two 16-bit numbers.  */
 CHIP Add16 {
 	IN a[16], b[16], cin;
